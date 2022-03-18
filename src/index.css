@@ -5,9 +5,53 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: aliceblue;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+nav{
+  background-color: #fafafa;
+  padding: 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+li{
+  list-style: none;
+  display: inline;
+  padding: 10px;
+  font-size: 1.25rem;
+}
+
+li:hover{
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+header{
+  margin-bottom: 30px;
+}
+
+.publicados{
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 5px;
+  background-color: #fafafa;
+  border: 1px solid #eaeaea;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.publicados:hover{
+  color: cornflowerblue;
 }
