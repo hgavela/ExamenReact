@@ -13,6 +13,12 @@ function App() {
     const data = await api.json();
     setList(data);
   }
+  const buscar = async() => {
+    const buscar = document.querySelector('.buscar').value;
+    const api = await fetch('http://localhost:8080/api/tutorials?title='+buscar);
+    const data = await api.json();
+    setList(data);
+  }
 
   const [semaforo, setSemaforo] = useState(false);
 
@@ -49,7 +55,8 @@ function App() {
         {list ? (
           <>
           <span className='publicados' onClick={published}>{semaforo ? (<>TODOS</>) : (<>PUBLICADOS</>)}</span>
-            <List list={list} />
+          <input type="text" placeholder="Buscar..." className='buscar' onChange={buscar}/>
+            <List list={list} setList={setList}/>
           </>
         ) :(
           <>

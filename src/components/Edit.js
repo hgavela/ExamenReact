@@ -8,11 +8,18 @@ import Edit from '../editar.svg'
 
 function Formulario(props) {
     const item = props.item;
+    const setList = props.setList;
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const api = async() => {
+    const api = await fetch('http://localhost:8080/api/tutorials');
+    const data = await api.json();
+    setList(data);
+}
 
     function save(){
         let title = document.querySelector('#titulo').value;
@@ -39,6 +46,7 @@ function Formulario(props) {
         })
         .then(function(data) {
         console.log(data);
+        api();
         setShow(false);
         })
     }
@@ -69,8 +77,17 @@ function Formulario(props) {
             <div className="form-group">
                 <label htmlFor="desc">Publicado</label>
                 <select className="form-control" id="publicado">
-                    <option value="true">true</option>
-                    <option value="false">false</option>
+                    {item.published ? (
+                      <>
+                        <option value="true" selected>Publicado</option>
+                        <option value="false">No Publicado</option>
+                      </>
+                    ) : (
+                      <>
+                        <option value="true">Publicado</option>
+                        <option value="false" selected>No Publicado</option>
+                      </>
+                    )}
                 </select>    
             </div>
           </form>

@@ -41,7 +41,7 @@ function Formulario() {
 
   return (
     <>
-      <Button variant="dark" onClick={handleShow}>AÑADIR</Button>
+      <button className='publicados' onClick={handleShow}>AÑADIR</button>
 
       <Modal
         show={show}

@@ -8,11 +8,18 @@ import Delete from '../basura.svg'
 
 function Formulario(props) {
     const item = props.item;
+    const setList = props.setList;
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const api = async() => {
+    const api = await fetch('http://localhost:8080/api/tutorials');
+    const data = await api.json();
+    setList(data);
+}
 
     function save(){
         
@@ -28,6 +35,7 @@ function Formulario(props) {
         })
         .then(function(data) {
         console.log(data);
+        api();
         setShow(false);
         })
     }
